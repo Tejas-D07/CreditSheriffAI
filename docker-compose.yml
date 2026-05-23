@@ -1,0 +1,11 @@
+services:
+  creditsheriff-ai:
+    build:
+      context: .
+    ports:
+      - "3001:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      APP_URL: ${APP_URL:-http://localhost:3001}

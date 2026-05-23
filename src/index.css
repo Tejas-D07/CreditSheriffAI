@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #FFFFFF;
+  --color-brand-panel: #F8FAFC;
+  --color-brand-card: #FFFFFF;
+  --color-brand-primary: #2563EB;
+  --color-brand-success: #059669;
+  --color-brand-warning: #D97706;
+  --color-brand-danger: #DC2626;
+  --color-brand-purple: #7C3AED;
+  
+  --font-sans: "Inter", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  .glassy-panel {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 10px 40px -10px rgba(15, 23, 42, 0.05);
+  }
+  
+  .glassy-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 4px 20px 0 rgba(15, 23, 42, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glassy-card:hover {
+    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 35px rgba(37, 99, 235, 0.08);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 35px rgba(124, 58, 237, 0.08);
+  }
+
+  .glow-success {
+    box-shadow: 0 0 30px rgba(5, 150, 105, 0.08);
+  }
+
+  .glow-danger {
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.08);
+  }
+
+  .neon-border-blue {
+    box-shadow: inset 0 0 12px rgba(37, 99, 235, 0.05), 0 0 8px rgba(37, 99, 235, 0.04);
+    border-color: rgba(37, 99, 235, 0.2);
+  }
+
+  .neon-border-success {
+    box-shadow: inset 0 0 12px rgba(5, 150, 105, 0.05), 0 0 8px rgba(5, 150, 105, 0.04);
+    border-color: rgba(5, 150, 105, 0.2);
+  }
+
+  .cyber-grid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  }
+
+  .cyber-dots {
+    background-size: 20px 20px;
+    background-image: radial-gradient(circle, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  }
+}
+
+/* Base resets & typography pairings */
+body {
+  background-color: #FFFFFF;
+  color: #1E293B;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  background-image: none !important;
+}
+
+/* Scrollbar customizations */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Animations */
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: .85;
+    transform: scale(0.99);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 25s linear infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-glow-flow {
+  animation: glow-flow 6s ease-in-out infinite alternate;
+}
+
+@keyframes glow-flow {
+  0% {
+    text-shadow: 0 0 4px rgba(37, 99, 235, 0.1), 0 0 12px rgba(37, 99, 235, 0.05);
+  }
+  100% {
+    text-shadow: 0 0 8px rgba(124, 58, 237, 0.2), 0 0 20px rgba(124, 58, 237, 0.1);
+  }
+}
+
+.ambient-glow {
+  display: none !important;
+}
+
+/* --- LIGHT THEME CONSTRUCTIVE OVERRIDES --- */
+
+/* Fix background utility fallbacks to ensure total light correctness */
+.bg-brand-bg, .bg-brand-card {
+  background-color: #FFFFFF !important;
+}
+
+.bg-brand-panel {
+  background-color: #F8FAFC !important;
+}
+
+/* Hardcoded hex string replacements */
+/* Main page level containers */
+.bg-\[\#0B1020\] {
+  background-color: #FAFAFA !important;
+}
+
+/* Sidebar background */
+.bg-\[\#080B1E\]\/95 {
+  background-color: #F8FAFC !important;
+}
+
+/* Sidebar bottom */
+.bg-\[\#070918\] {
+  background-color: #F1F5F9 !important;
+}
+
+/* Navigation tabs pill */
+.bg-\[\#121A2A\]\/40 {
+  background-color: #E2E8F0 !important;
+}
+
+.bg-\[\#121A2A\]\/20 {
+  background-color: #F1F5F9 !important;
+}
+
+.bg-\[\#121A2A\] {
+  background-color: #F1F5F9 !important;
+}
+
+.bg-\[\#131B31\] {
+  background-color: #FFFFFF !important;
+}
+
+.bg-\[\#131B3D\]\/30 {
+  background-color: #F1F5F9 !important;
+}
+
+.bg-\[\#121935\] {
+  background-color: #FFFFFF !important;
+}
+
+.bg-\[\#101535\] {
+  background-color: #F8FAFC !important;
+}
+
+.bg-\[\#151E4E\] {
+  background-color: #FFFFFF !important;
+}
+
+.bg-\[\#050816\]\/70,
+.bg-\[\#050816\]\/75,
+.bg-\[\#050816\]\/60,
+.bg-\[\#050816\] {
+  background-color: #F1F5F9 !important;
+}
+
+.bg-\[\#0D132D\]\/75,
+.bg-\[\#0D132D\]\/80,
+.bg-\[\#0D132D\]\/85,
+.bg-\[\#0D132D\]\/40,
+.bg-\[\#0D132D\],
+.bg-\[\#0G132E\]\/30,
+.bg-\[\#0G132E\] {
+  background-color: #FFFFFF !important;
+}
+
+/* Overriding direct color classes to ensure white text is turned into slate for reading */
+.text-white {
+  /* Guard solid buttons and state badges from receiving dark text */
+  color: #0F172A;
+}
+
+/* Exempt specific interactive elements (such as bright blue/green/red full background buttons) */
+button.bg-brand-primary .text-white,
+button.bg-brand-primary,
+button.bg-brand-secondary,
+button.bg-brand-success,
+button.bg-brand-danger,
+button.bg-brand-purple,
+button.bg-gradient-to-r,
+.bg-brand-primary .text-white,
+.bg-brand-success .text-white,
+.bg-brand-danger .text-white,
+.bg-brand-purple .text-white,
+.font-bold.text-white[id*="btn"],
+button[id*="action"] .text-white,
+button[id*="btn"] .text-white {
+  color: #FFFFFF !important;
+}
+
+/* Explicit button style override for full background CTA buttons to keep text crisp white */
+button.bg-brand-primary span,
+button.bg-gradient-to-br span {
+  color: #FFFFFF !important;
+}
+
+a.text-white, h1.text-white, h2.text-white, h3.text-white, h4.text-white, h5.text-white, p.text-white, span.text-white {
+  /* Unless overridden by active elements */
+  color: #0F172A;
+}
+
+/* Text gray adjustments for absolute clarity */
+.text-slate-100 { color: #1E293B !important; }
+.text-slate-200 { color: #334155 !important; }
+.text-slate-300 { color: #475569 !important; }
+.text-slate-400 { color: #475569 !important; } /* Elevate text-slate-400 from #57657A to #475569 for better readability */
+.text-slate-450 { color: #334155 !important; }
+.text-slate-500 { color: #475569 !important; } /* Elevate text-slate-500 from #64748B to #475569 */
+.text-slate-600 { color: #334155 !important; } /* Elevate text-slate-600 to very high contrast */
+.text-gray-500 { color: #475569 !important; }
+.text-gray-600 { color: #2D3748 !important; }
+
+/* Ensure bright neon colors comply with WCAG contrast ratios on light background cards */
+.text-\[\#00E676\],
+.text-brand-success {
+  color: #059669 !important; /* Perfect forest success green */
+}
+.text-\[\#FFB020\],
+.text-brand-warning {
+  color: #D97706 !important; /* Premium high-contrast amber */
+}
+.text-\[\#FF5252\],
+.text-brand-danger {
+  color: #DC2626 !important; /* Accessible solid danger red */
+}
+.text-\[\#8B5CF6\],
+.text-brand-purple {
+  color: #7C3AED !important; /* Premium vivid purple */
+}
+
+/* Override opacities */
+.opacity-50 { opacity: 0.9 !important; }
+.opacity-60 { opacity: 0.9 !important; }
+.opacity-70 { opacity: 0.95 !important; }
+.opacity-80 { opacity: 0.95 !important; }
+
+/* Keep specific glows safe */
+.text-glow {
+  text-shadow: none !important;
+}
+
+/* Border overrides from dark lines to elegant light lines */
+.border-white\/5 {
+  border-color: #E2E8F0 !important;
+}
+
+.border-white\/10 {
+  border-color: #E2E8F0 !important;
+}
+
+.border-white\/20 {
+  border-color: #CBD5E1 !important;
+}
+
+/* Fix Hero gradient background overlays */
+.bg-gradient-to-r.from-\[\#050816\] {
+  background-image: linear-gradient(to right, #FFFFFF 0%, #FAFAFA 60%, rgba(241, 245, 249, 0.4) 100%) !important;
+}
+
+/* Input boxes, textareas */
+textarea, input[type="text"], input[type="number"], select {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+textarea::placeholder, input::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Modals & Dialog overlays */
+.bg-brand-panel\/95, .bg-brand-bg\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+/* Force chart tooltip containers to look fantastic in light mode */
+.recharts-default-tooltip {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+}
+.recharts-tooltip-label {
+  color: #0F172A !important;
+  font-weight: bold !important;
+}
+.recharts-grid-horizontal line, .recharts-grid-vertical line {
+  stroke: #E2E8F0 !important;
+}
